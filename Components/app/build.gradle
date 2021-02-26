@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.halcyonmobile.composecomponents"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+    kotlinOptions {
+        jvmTarget = versions.java
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    implementation "androidx.core:core-ktx:${versions.androidxCore}"
+    implementation "androidx.appcompat:appcompat:${versions.androidxAppCompat}"
+    implementation "androidx.activity:activity-compose:${versions.activity}"
+
+    implementation "androidx.compose.compiler:compiler:${versions.compose}"
+    implementation "androidx.compose.runtime:runtime:${versions.compose}"
+    implementation "androidx.compose.runtime:runtime-livedata:${versions.compose}"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.foundation:foundation-layout:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+    implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
+    implementation "androidx.compose.foundation:foundation:${versions.compose}"
+    implementation "androidx.compose.animation:animation:${versions.compose}"
+    implementation "androidx.ui:ui-tooling:${versions.ui}"
+
+    implementation "dev.chrisbanes.accompanist:accompanist-insets:${versions.accompanist}"
+
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidxTestEspresso}"
+}
