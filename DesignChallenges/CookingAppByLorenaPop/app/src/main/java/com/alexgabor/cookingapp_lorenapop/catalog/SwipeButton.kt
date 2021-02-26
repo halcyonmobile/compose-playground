@@ -2,7 +2,9 @@ package com.alexgabor.cookingapp_lorenapop.catalog
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
@@ -17,7 +19,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.gesture.scrollorientationlocking.Orientation
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onSizeChanged
@@ -45,10 +46,13 @@ private fun InternalSwipeButton(
     val contentSize = remember { mutableStateOf(IntSize(0, 0)) }
     val thumbSize = contentSize.value.height
     val animationScope = rememberCoroutineScope()
+    val draggableState = rememberDraggableState {delta ->
+        position.value = (position.value + delta).coerceIn(0f, contentSize.value.width.toFloat() - thumbSize)
+    }
 
     Surface(modifier = modifier
         .onSizeChanged { intSize -> contentSize.value = intSize }
-        .draggable(Orientation.Horizontal,
+        .draggable(state = draggableState, orientation = Orientation.Horizontal,
             onDragStarted = {
                 isDragging.value = true
             },
@@ -64,9 +68,6 @@ private fun InternalSwipeButton(
                     animateBack.animateTo(destination)
                     position.value = destination
                 }
-            },
-            onDrag = { delta ->
-                position.value = (position.value + delta).coerceIn(0f, contentSize.value.width.toFloat() - thumbSize)
             }
         ),
         shape = shape,
@@ -93,7 +94,7 @@ fun SwipeButton(
     ) { offset ->
         Icon(Icons.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier
             .padding(AppTheme.dimens.bannerButtonPadding)
-            .preferredSize(AppTheme.dimens.buttonHeight - AppTheme.dimens.bannerButtonPadding * 2)
+            .size(AppTheme.dimens.buttonHeight - AppTheme.dimens.bannerButtonPadding * 2)
             .offset { offset }
             .clip(CircleShape)
             .background(AppTheme.colors.accent))

@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.loadImageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
@@ -97,7 +96,7 @@ private fun Toolbar() {
         Box(Modifier.weight(1f)) {
             Image(painterResource(R.drawable.profile), contentDescription = "Profile", contentScale = ContentScale.Crop, modifier = Modifier
                 .clip(CircleShape)
-                .preferredSize(AppTheme.dimens.screenPadding))
+                .size(AppTheme.dimens.screenPadding))
         }
         Image(painterResource(R.drawable.ic_search), contentDescription = "Search", Modifier.padding(start = AppTheme.dimens.iconSpacing, end = AppTheme.dimens.iconSpacing))
         Image(painterResource(R.drawable.ic_shopping_cart), contentDescription = "Shopping cart", Modifier.padding(start = AppTheme.dimens.iconSpacing))

@@ -43,8 +43,8 @@ fun Carousel(
                     if (viewportFraction < 1) {
                         Canvas(modifier = Modifier
                             .align(Alignment.CenterEnd)
-                            .preferredWidth(AppTheme.dimens.scrollBarLength)
-                            .preferredHeight(AppTheme.dimens.scrollBarThickness), onDraw = {
+                            .width(AppTheme.dimens.scrollBarLength)
+                            .height(AppTheme.dimens.scrollBarThickness), onDraw = {
                             drawRoundRect(background, cornerRadius = CornerRadius(size.height, size.height))
                             drawRoundRect(accent,
                                 topLeft = Offset(size.width * offset, 0f),

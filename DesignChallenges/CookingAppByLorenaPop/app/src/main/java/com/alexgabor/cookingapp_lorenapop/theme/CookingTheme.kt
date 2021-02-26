@@ -1,10 +1,7 @@
 package com.alexgabor.cookingapp_lorenapop.theme
 
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ComposableContract
-import androidx.compose.runtime.Providers
-import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.*
 import com.alexgabor.cookingapp_lorenapop.theme.color.LocalColors
 import com.alexgabor.cookingapp_lorenapop.theme.color.AppColors
 import com.alexgabor.cookingapp_lorenapop.theme.color.appColors
@@ -39,7 +36,7 @@ object AppTheme {
 
 @Composable
 fun CookingTheme(content: @Composable () -> Unit) {
-    Providers(
+    CompositionLocalProvider(
         LocalColors provides appColors,
         LocalDimens provides appDimens,
         LocalTypography provides appTypography,
