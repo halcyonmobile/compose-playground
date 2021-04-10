@@ -2,6 +2,7 @@ package com.alexgabor.cookingapp_lorenapop.catalog
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.padding
@@ -29,6 +30,7 @@ fun InternalBannerButton(
     modifier: Modifier = Modifier,
     shape: Shape = AppTheme.shapes.large,
     elevation: Dp = AppTheme.dimens.buttonElevation,
+    onClick: () -> Unit,
     thumb: @Composable BoxScope.() -> Unit,
     content: @Composable BoxScope.(thumbSize: Dp) -> Unit,
 ) {
@@ -39,7 +41,7 @@ fun InternalBannerButton(
         .onSizeChanged { intSize -> contentSize.value = intSize },
         shape = shape,
         elevation = elevation) {
-        Box {
+        Box(modifier = Modifier.clickable { onClick() }) {
             content(this, with(LocalDensity.current) { thumbSize.toDp() })
             thumb(this)
         }
@@ -49,6 +51,7 @@ fun InternalBannerButton(
 @Composable
 fun BannerButton(
     modifier: Modifier,
+    onClick: () -> Unit,
     content: @Composable BoxScope.(thumbSize: Dp) -> Unit,
 ) {
     InternalBannerButton(modifier,
@@ -64,6 +67,8 @@ fun BannerButton(
                     .align(Alignment.Center))
             }
         },
-        content = content)
+        content = content,
+        onClick = onClick
+    )
 
 }

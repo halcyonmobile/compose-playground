@@ -55,6 +55,8 @@ dependencies {
     implementation "androidx.compose.animation:animation:${versions.compose}"
     implementation "androidx.ui:ui-tooling:${versions.ui}"
 
+    implementation "androidx.navigation:navigation-compose:${versions.navigation}"
+
     implementation "com.google.accompanist:accompanist-insets:${versions.accompanist}"
 
     testImplementation "junit:junit:${versions.junit}"
