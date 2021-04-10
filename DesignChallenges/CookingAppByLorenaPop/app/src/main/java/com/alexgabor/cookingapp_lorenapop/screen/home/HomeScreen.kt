@@ -21,8 +21,8 @@ import com.alexgabor.cookingapp_lorenapop.catalog.Carousel
 import com.alexgabor.cookingapp_lorenapop.catalog.Title
 import com.alexgabor.cookingapp_lorenapop.screen.home.model.categories
 import com.alexgabor.cookingapp_lorenapop.theme.AppTheme
-import dev.chrisbanes.accompanist.insets.navigationBarsPadding
-import dev.chrisbanes.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
 fun HomeScreen() {
