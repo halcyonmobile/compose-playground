@@ -2,7 +2,8 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        jcenter()
+        maven { url = "https://dl.bintray.com/kotlin/kotlinx/"}
+        mavenCentral()
     }
 }
 rootProject.name = "Compose Components"

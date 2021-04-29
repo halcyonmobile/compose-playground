@@ -13,8 +13,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.halcyonmobile.composecomponents.Component
 import com.halcyonmobile.composecomponents.R
-import dev.chrisbanes.accompanist.insets.navigationBarsPadding
-import dev.chrisbanes.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
 fun StartScreen(components: List<Component>, onClick: (index: Int, component: Component) -> Unit) {
