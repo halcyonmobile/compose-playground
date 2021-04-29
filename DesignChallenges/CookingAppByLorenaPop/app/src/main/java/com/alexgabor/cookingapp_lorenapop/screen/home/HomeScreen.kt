@@ -102,7 +102,7 @@ fun HomeScreen(navController: NavHostController) {
 }
 
 @Composable
-private fun Toolbar() {
+fun Toolbar() {
     Row(Modifier
         .fillMaxWidth()
         .statusBarsPadding()
