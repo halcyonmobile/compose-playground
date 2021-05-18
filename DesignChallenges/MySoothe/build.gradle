@@ -1,15 +1,16 @@
 buildscript {
-    ext.kotlin_version = '1.4.31'
-    ext.compose_version = '1.0.0-beta02'
+    ext.kotlin_version = '1.4.32'
+    ext.compose_version = '1.0.0-beta06'
     ext.coroutines_version = '1.4.2'
 
     repositories {
         google()
-        jcenter()
+        maven { url = "https://dl.bintray.com/kotlin/kotlinx/"}
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha12'
+        classpath 'com.android.tools.build:gradle:7.0.0-alpha15'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -17,6 +18,7 @@ buildscript {
 subprojects {
     repositories {
         google()
-        jcenter()
+        maven { url = "https://dl.bintray.com/kotlin/kotlinx/"}
+        mavenCentral()
     }
 }
