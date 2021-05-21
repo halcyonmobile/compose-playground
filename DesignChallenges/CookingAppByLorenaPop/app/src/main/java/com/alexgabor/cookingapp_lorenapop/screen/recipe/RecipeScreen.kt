@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
@@ -38,9 +39,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.alexgabor.cookingapp_lorenapop.R
 import com.alexgabor.cookingapp_lorenapop.catalog.Chip
+import com.alexgabor.cookingapp_lorenapop.catalog.CircleButton
 import com.alexgabor.cookingapp_lorenapop.catalog.SwipeButton
 import com.alexgabor.cookingapp_lorenapop.theme.AppTheme
 import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -72,6 +75,7 @@ fun RecipeScreen(navController: NavHostController) {
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(1f))
+        Toolbar(Modifier.statusBarsPadding())
         LazyColumn(Modifier
             .padding(top = with(LocalDensity.current) { currentOffset.toDp() })
             .fillMaxSize()
@@ -135,5 +139,34 @@ fun RecipeScreen(navController: NavHostController) {
             .align(BottomCenter)
             .padding(AppTheme.dimens.screenPadding)
             .navigationBarsPadding())
+    }
+}
+
+@Composable
+private fun Toolbar(
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier.padding(horizontal = AppTheme.dimens.screenPadding),
+        horizontalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+        Box(Modifier.weight(1f)) {
+            CircleButton {
+                Image(painter = painterResource(id = R.drawable.ic_arrow_forward),
+                    modifier = Modifier.rotate(-180f),
+                    contentDescription = "Go back",
+                    colorFilter = ColorFilter.tint(AppTheme.colors.textOnSurface))
+            }
+        }
+        CircleButton {
+            Image(painter = painterResource(id = R.drawable.ic_share),
+                contentDescription = "Go back",
+                colorFilter = ColorFilter.tint(AppTheme.colors.textOnSurface))
+        }
+        CircleButton {
+            Image(painter = painterResource(id = R.drawable.ic_shopping_cart),
+                contentDescription = "Go back",
+                colorFilter = ColorFilter.tint(AppTheme.colors.textOnSurface))
+        }
     }
 }
