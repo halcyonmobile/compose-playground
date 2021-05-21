@@ -53,7 +53,6 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
     implementation "androidx.compose.foundation:foundation:${versions.compose}"
     implementation "androidx.compose.animation:animation:${versions.compose}"
-    implementation "androidx.ui:ui-tooling:${versions.ui}"
 
     implementation "androidx.navigation:navigation-compose:${versions.navigation}"
 

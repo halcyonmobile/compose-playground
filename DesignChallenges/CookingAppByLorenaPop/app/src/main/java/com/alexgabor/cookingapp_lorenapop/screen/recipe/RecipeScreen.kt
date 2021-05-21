@@ -1,8 +1,5 @@
 package com.alexgabor.cookingapp_lorenapop.screen.recipe
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.calculateTargetValue
-import androidx.compose.animation.defaultDecayAnimationSpec
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.BackdropScaffold
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +34,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.alexgabor.cookingapp_lorenapop.R
@@ -54,7 +49,6 @@ fun RecipeScreen(navController: NavHostController) {
     val maxOffset = with(LocalDensity.current) { (LocalConfiguration.current.screenWidthDp.dp - 24.dp).toPx() }
     var currentOffset by remember { mutableStateOf(maxOffset) }
     val listState = rememberLazyListState()
-    val flingDecay = defaultDecayAnimationSpec()
 
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {
@@ -63,54 +57,11 @@ fun RecipeScreen(navController: NavHostController) {
                 if (available > 0 && (listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > 0)) return 0f
                 val availableEnd = (currentOffset + available)
                 currentOffset = availableEnd.coerceIn(minOffset, maxOffset)
-                return (available - (availableEnd - currentOffset)).also { println("zzz scrolledBy $it") }
+                return (available - (availableEnd - currentOffset))
             }
 
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
-                println("zzz preScroll $available")
                 return Offset(x = 0f, y = scrollBy(available.y))
-//                return super.onPreScroll(available, source)
-            }
-
-            override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
-                return super.onPostScroll(consumed, available, source)
-            }
-
-            override suspend fun onPreFling(available: Velocity): Velocity {
-                println("zzz preFling $available")
-//                if (currentOffset <= minOffset) return available
-
-//                val direction = if (currentOffset > minOffset) -1 else 1
-//                val velocity = available.y * direction
-//                if (velocity < 0 && currentOffset > minOffset || velocity > 0 && (listState.firstVisibleItemIndex == 0 && listState.firstVisibleItemScrollOffset == 0)) {
-//                    val animationResult = Animatable(currentOffset).apply {
-//                        updateBounds(minOffset, maxOffset)
-//                    }.animateDecay(velocity, flingDecay) {
-//                        println("zzz decay $value")
-//                        currentOffset = this.value
-//                    }
-//                    return available
-////                    return Velocity(x = 0f, available.y - animationResult.endState.velocity * direction).also {
-////                        println("zzz pre consumed $it = $velocity - ${animationResult.endState.velocity}")
-////                    }
-//                }
-                return super.onPreFling(available)
-            }
-
-            override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
-                println("zzz postFling $consumed $available ${listState.firstVisibleItemIndex} ${listState.firstVisibleItemScrollOffset}")
-//                val direction = if (currentOffset > minOffset) -1 else 1
-//                val velocity = available.y * direction
-////                if (velocity > 0 && (listState.firstVisibleItemIndex == 0 && listState.firstVisibleItemScrollOffset == 0)) {
-//                    val animationResult = Animatable(currentOffset).apply {
-//                        updateBounds(minOffset, maxOffset)
-//                    }.animateDecay(velocity, flingDecay) {
-//                        currentOffset = this.value
-//                    }
-//                    return Velocity.Zero
-//                    return Velocity(x = 0f, velocity - animationResult.endState.velocity)
-//                }
-                return available
             }
         }
     }
@@ -179,10 +130,10 @@ fun RecipeScreen(navController: NavHostController) {
                 }
             }
         }
-//        SwipeButton(modifier = Modifier
-//            .fillMaxWidth()
-//            .align(BottomCenter)
-//            .padding(AppTheme.dimens.screenPadding)
-//            .navigationBarsPadding())
+        SwipeButton(modifier = Modifier
+            .fillMaxWidth()
+            .align(BottomCenter)
+            .padding(AppTheme.dimens.screenPadding)
+            .navigationBarsPadding())
     }
 }

@@ -24,7 +24,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.navigate
 import com.alexgabor.cookingapp_lorenapop.R
 import com.alexgabor.cookingapp_lorenapop.catalog.BannerButton
 import com.alexgabor.cookingapp_lorenapop.catalog.Carousel
