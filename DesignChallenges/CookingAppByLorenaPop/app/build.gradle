@@ -48,14 +48,16 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:${versions.compose}"
     implementation "androidx.compose.runtime:runtime-livedata:${versions.compose}"
     implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
     implementation "androidx.compose.foundation:foundation-layout:${versions.compose}"
     implementation "androidx.compose.material:material:${versions.compose}"
     implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
     implementation "androidx.compose.foundation:foundation:${versions.compose}"
     implementation "androidx.compose.animation:animation:${versions.compose}"
-    implementation "androidx.ui:ui-tooling:${versions.ui}"
 
-    implementation "dev.chrisbanes.accompanist:accompanist-insets:${versions.accompanist}"
+    implementation "androidx.navigation:navigation-compose:${versions.navigation}"
+
+    implementation "com.google.accompanist:accompanist-insets:${versions.accompanist}"
 
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.androidxTestJunit}"

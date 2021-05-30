@@ -2,7 +2,15 @@ package com.alexgabor.cookingapp_lorenapop.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
@@ -15,17 +23,19 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.alexgabor.cookingapp_lorenapop.R
 import com.alexgabor.cookingapp_lorenapop.catalog.BannerButton
 import com.alexgabor.cookingapp_lorenapop.catalog.Carousel
 import com.alexgabor.cookingapp_lorenapop.catalog.Title
+import com.alexgabor.cookingapp_lorenapop.screen.Destination
 import com.alexgabor.cookingapp_lorenapop.screen.home.model.categories
 import com.alexgabor.cookingapp_lorenapop.theme.AppTheme
-import dev.chrisbanes.accompanist.insets.navigationBarsPadding
-import dev.chrisbanes.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     Column(Modifier.fillMaxSize()) {
         Toolbar()
         LazyColumn {
@@ -49,13 +59,16 @@ fun HomeScreen() {
                         .fillMaxWidth()
                         .padding(start = 32.dp, end = 32.dp, bottom = 32.dp)
                         .height(AppTheme.dimens.buttonHeight)
-                        .align(Alignment.BottomCenter)) { offset ->
-                        Text("Try this recipe", style = AppTheme.typography.button,
-                            modifier = Modifier
-                                .align(Alignment.Center)
-                                .padding(start = AppTheme.dimens.bannerButtonPadding, end = offset)
-                        )
-                    }
+                        .align(Alignment.BottomCenter),
+                        onClick = { navController.navigate(Destination.Recipe) },
+                        content = { offset ->
+                            Text("Try this recipe", style = AppTheme.typography.button,
+                                modifier = Modifier
+                                    .align(Alignment.Center)
+                                    .padding(start = AppTheme.dimens.bannerButtonPadding, end = offset)
+                            )
+                        }
+                    )
                 }
             }
             item {
@@ -79,14 +92,16 @@ fun HomeScreen() {
                     })
             }
             item {
-                Spacer(modifier = Modifier.navigationBarsPadding().padding(bottom = AppTheme.dimens.screenPadding))
+                Spacer(modifier = Modifier
+                    .navigationBarsPadding()
+                    .padding(bottom = AppTheme.dimens.screenPadding))
             }
         }
     }
 }
 
 @Composable
-private fun Toolbar() {
+fun Toolbar() {
     Row(Modifier
         .fillMaxWidth()
         .statusBarsPadding()
