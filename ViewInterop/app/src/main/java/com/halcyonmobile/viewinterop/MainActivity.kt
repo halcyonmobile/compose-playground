@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun InteropApp() {
+fun InteropApp() {
     ProvideWindowInsets {
         InteropExamples()
     }
