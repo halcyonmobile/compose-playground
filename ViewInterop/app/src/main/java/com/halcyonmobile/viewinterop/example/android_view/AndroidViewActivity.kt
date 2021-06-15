@@ -5,24 +5,28 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.utils.Utils
 
 class AndroidViewActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            Utils.convertDpToPixel(LocalDensity.current.density) // for MPChart
+
             var lineData by remember { mutableStateOf(getLineData(getRandomChartEntries())) }
 
             Column {
+                Description(Modifier.padding(16.dp))
                 AndroidView(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -47,6 +51,20 @@ class AndroidViewActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun Description(
+    modifier: Modifier = Modifier
+) {
+    Column(modifier) {
+        val uriHandler = LocalUriHandler.current
+        Text(text = "You can use AndroidView to inflate Views in Compose", Modifier.padding(bottom = 8.dp))
+        OutlinedButton(
+            onClick = { uriHandler.openUri("https://developer.android.com/jetpack/compose/interop/interop-apis#views-in-compose") }) {
+            Text(text = "See docs")
         }
     }
 }

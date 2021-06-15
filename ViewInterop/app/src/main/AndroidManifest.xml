@@ -22,6 +22,7 @@
         <activity android:name=".example.compose_view.ComposeViewActivity" />
         <activity android:name=".example.dynamic_compose_view.DynamicComposeViewActivity" />
         <activity android:name=".example.android_view.AndroidViewActivity" />
+        <activity android:name=".example.viewbinding.ViewBindingActivity" />
     </application>
 
 </manifest>
