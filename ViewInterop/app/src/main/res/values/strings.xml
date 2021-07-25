@@ -2,4 +2,5 @@
     <string name="app_name">View Interop</string>
     <string name="compose_view_title">Use ComposeView to add compose in XML\nDocs: https://developer.android.com/jetpack/compose/interop/interop-apis#compose-in-views\n\nSee ComposeView below</string>
     <string name="see_compose_below">See Compose below</string>
+    <string name="abstract_compose_view_title">Wrap Composable function in a view which extends AbstractComposeView to use them in Android views</string>
 </resources>

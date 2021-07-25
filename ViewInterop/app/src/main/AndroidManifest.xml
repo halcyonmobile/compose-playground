@@ -23,6 +23,7 @@
         <activity android:name=".example.dynamic_compose_view.DynamicComposeViewActivity" />
         <activity android:name=".example.android_view.AndroidViewActivity" />
         <activity android:name=".example.viewbinding.ViewBindingActivity" />
+        <activity android:name=".example.abstractcomposeview.AbstractComposeViewActivity" />
     </application>
 
 </manifest>
