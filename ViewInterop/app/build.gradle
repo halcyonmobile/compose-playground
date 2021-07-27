@@ -45,6 +45,8 @@ dependencies {
     implementation "androidx.core:core-ktx:${versions.androidxCore}"
     implementation "androidx.appcompat:appcompat:${versions.androidxAppCompat}"
     implementation "androidx.activity:activity-compose:${versions.composeActivity}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:${versions.lifecycleViewModelCompose}"
+    implementation "androidx.navigation:navigation-compose:${versions.navigationCompose}"
 
     implementation "androidx.compose.compiler:compiler:${versions.compose}"
     implementation "androidx.compose.runtime:runtime:${versions.compose}"

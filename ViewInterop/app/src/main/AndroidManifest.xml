@@ -24,6 +24,7 @@
         <activity android:name=".example.android_view.AndroidViewActivity" />
         <activity android:name=".example.viewbinding.ViewBindingActivity" />
         <activity android:name=".example.abstractcomposeview.AbstractComposeViewActivity" />
+        <activity android:name=".example.viewmodel.ViewModelsActivity" />
     </application>
 
 </manifest>
