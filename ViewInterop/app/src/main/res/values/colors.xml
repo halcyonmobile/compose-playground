@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Primary brand colors-->
+    <color name="color_primary">@color/halcyon_purple</color>
+    <color name="color_primary_variant">@color/halcyon_purple_dark</color>
+    <color name="color_on_primary">@android:color/white</color>
+    <!--Secondary brand colors-->
+    <color name="color_secondary">@color/halcyon_yellow</color>
+    <color name="color_secondary_variant">@color/halcyon_yellow_dark</color>
+    <color name="color_on_secondary">@android:color/black</color>
+
+    <!--Branding colors for light theme-->
+    <color name="halcyon_purple">#009688</color>
+    <color name="halcyon_purple_dark">#00796B</color>
+    <color name="halcyon_yellow">#ffe650</color>
+    <color name="halcyon_yellow_dark">#ccb840</color>
+
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#B3FFFFFF</color> <!-- 70% white -->
+    <color name="system_ui_scrim_black">#33000000</color> <!-- 20% black -->
+
+    <!-- We use a dark scrim by default since light nav bar is API 27+ -->
+    <color name="nav_bar_scrim">@color/system_ui_scrim_black</color>
+
+    <color name="splash_background">@android:color/white</color>
+
     <color name="light_gray">#CCC</color>
 </resources>

@@ -25,6 +25,9 @@
         <activity android:name=".example.viewbinding.ViewBindingActivity" />
         <activity android:name=".example.abstractcomposeview.AbstractComposeViewActivity" />
         <activity android:name=".example.viewmodel.ViewModelsActivity" />
+        <activity
+            android:name=".example.theming.ThemingActivity"
+            android:theme="@style/MdcComposeAdapterTheme" />
     </application>
 
 </manifest>

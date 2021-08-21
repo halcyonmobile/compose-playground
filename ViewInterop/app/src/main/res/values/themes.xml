@@ -6,4 +6,43 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+    <style name="MdcComposeAdapterTheme" parent="Theme.MaterialComponents.DayNight">
+        <!--Color theming-->
+        <!--Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <!--Secondary brand color. -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary_variant</item>
+        <item name="colorOnSecondary">@color/color_on_secondary</item>
+
+        <!--Typography theming-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.ProjectTemplate.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.ProjectTemplate.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.ProjectTemplate.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.ProjectTemplate.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.ProjectTemplate.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.ProjectTemplate.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.ProjectTemplate.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.ProjectTemplate.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.ProjectTemplate.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.ProjectTemplate.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.ProjectTemplate.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.ProjectTemplate.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.ProjectTemplate.Overline</item>
+
+        <!--Shape theming-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.ProjectTemplate.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.ProjectTemplate.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.ProjectTemplate.Large</item>
+
+        <!--Status bar config-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+
+        <!--Navigation bar config-->
+        <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">?attr/isLightTheme</item>
+    </style>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Primary brand colors-->
+    <color name="color_on_primary">@android:color/black</color>
+    <!--Secondary brand colors-->
+    <color name="color_on_secondary">@android:color/black</color>
+
+    <!--Branding colors for dark theme-->
+    <color name="halcyon_purple">#009688</color>
+    <color name="halcyon_purple_dark">#00796B</color>
+    <color name="halcyon_yellow">#ffee85</color>
+    <color name="halcyon_yellow_dark">#ffe962</color>
+
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#2EFFFFFF</color> <!-- 18% white -->
+    <color name="system_ui_scrim_black">#B3000000</color> <!-- 70% black -->
+
+    <color name="splash_background">@android:color/black</color>
+</resources>
