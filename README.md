@@ -8,9 +8,9 @@ A collection of projects made with Jetpack Compose.
 
 A place to create a small UI components with compose.
 
-### [Architecture](Architecture/)
+### [ViewInterop](ViewInterop/)
 
-Projects to try out architecture ideas related to compose.
+A place to try out how Compose interops with the Android Views.
 
 ### [Design challenges](DesignChallenges/)
 
