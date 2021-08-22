@@ -41,7 +41,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
     implementation "androidx.core:core-ktx:${versions.androidxCore}"
     implementation "androidx.appcompat:appcompat:${versions.androidxAppCompat}"
-    implementation "androidx.activity:activity-compose:${versions.activity}"
+    implementation "androidx.activity:activity-compose:${versions.composeActivity}"
 
     implementation "androidx.compose.compiler:compiler:${versions.compose}"
     implementation "androidx.compose.runtime:runtime:${versions.compose}"
