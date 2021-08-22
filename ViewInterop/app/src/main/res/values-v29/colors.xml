@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- On API 29+ we can have a transparent nav bar since Android will handle the color of the actions in the nav bar for us, so we won't have contrast issues -->
+    <color name="nav_bar_scrim">@android:color/transparent</color>
+
+</resources>

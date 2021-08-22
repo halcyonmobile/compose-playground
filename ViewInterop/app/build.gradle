@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.halcyonmobile.viewinterop"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    implementation "androidx.core:core-ktx:${versions.androidxCore}"
+    implementation "androidx.appcompat:appcompat:${versions.androidxAppCompat}"
+    implementation "androidx.activity:activity-compose:${versions.composeActivity}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:${versions.lifecycleViewModelCompose}"
+    implementation "androidx.navigation:navigation-compose:${versions.navigationCompose}"
+    implementation "com.google.android.material:compose-theme-adapter:${versions.mdcComposeAdapter}"
+
+    implementation "androidx.compose.compiler:compiler:${versions.compose}"
+    implementation "androidx.compose.runtime:runtime:${versions.compose}"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
+    implementation "androidx.compose.ui:ui-viewbinding:${versions.compose}"
+    implementation "androidx.compose.foundation:foundation-layout:${versions.compose}"
+    implementation "androidx.compose.foundation:foundation:${versions.compose}"
+    implementation "androidx.compose.animation:animation:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+
+    implementation "com.google.android.material:material:${versions.material}"
+    implementation "com.github.PhilJay:MPAndroidChart:${versions.mpChart}"
+
+    implementation "com.google.accompanist:accompanist-insets:${versions.accompanist}"
+
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidxTestEspresso}"
+}
