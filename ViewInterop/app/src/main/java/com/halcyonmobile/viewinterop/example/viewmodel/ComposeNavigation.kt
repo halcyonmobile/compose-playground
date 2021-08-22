@@ -38,6 +38,9 @@ fun Page(index: Int, onPrev: () -> Unit, onNext: () -> Unit) {
     Column(Modifier.padding(8.dp)) {
         Text(text = "Navigation Compose: ViewModel is scoped to the destination")
         Text(text = "Page $index")
+        /**
+         * When calling it here the ViewModel will be scoped to this Navigation destination
+         */
         ComposeWithViewModels()
 
         Row(

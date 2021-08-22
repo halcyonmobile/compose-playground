@@ -16,6 +16,10 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.utils.Utils
 
+/**
+ * Use AndroidView to add Views in Compose.
+ * See [AndroidView] doc for details on how to use it.
+ */
 class AndroidViewActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

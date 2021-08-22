@@ -7,7 +7,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
@@ -18,6 +22,10 @@ import com.halcyonmobile.viewinterop.databinding.ActivityViewBindingBinding
 import com.halcyonmobile.viewinterop.example.android_view.getLineData
 import com.halcyonmobile.viewinterop.example.android_view.getRandomChartEntries
 
+/**
+ * Use AndroidViewBinding to inflate binding in Compose.
+ * See [AndroidViewBinding] doc for details on how to use it.
+ */
 class ViewBindingActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

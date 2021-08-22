@@ -15,6 +15,10 @@ import androidx.compose.ui.unit.dp
 import com.halcyonmobile.viewinterop.R
 import com.halcyonmobile.viewinterop.databinding.ActivityDynamicComposeViewBinding
 
+/**
+ * You can add ComposeView dynamically like any other view.
+ * You only need to give it a unique id.
+ */
 class DynamicComposeViewActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

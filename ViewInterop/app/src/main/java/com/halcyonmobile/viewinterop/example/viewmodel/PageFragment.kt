@@ -28,6 +28,9 @@ class PageFragment : Fragment() {
             Column(Modifier.padding(8.dp)) {
                 Text(text = "Fragment Pager: ViewModel is scoped to the Fragment")
                 Text(text = "Fragment $index")
+                /**
+                 * When calling it here the ViewModel will be scoped to this Fragment
+                 */
                 ComposeWithViewModels()
             }
         }

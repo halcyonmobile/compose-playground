@@ -23,7 +23,13 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.android.material.composethemeadapter.MdcTheme
 
-
+/**
+ * The MDC Compose adapter is useful when migrating to Compose so the your Compose code will use the theme defined in XML.
+ * See in this example how the styles in [MaterialTheme] match the theme set to [ThemingActivity].
+ * For this to work you need to wrap your compose code with [MdcTheme].
+ *
+ * Note that there are some limitations see docs: https://github.com/material-components/material-components-android-compose-theme-adapter#limitations
+ */
 class ThemingActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +37,7 @@ class ThemingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ProvideWindowInsets {
-                MdcTheme {
+                MdcTheme { // The magic happens here
                     val insetPadding = rememberInsetsPaddingValues(
                         LocalWindowInsets.current.systemBars,
                         additionalStart = 16.dp,

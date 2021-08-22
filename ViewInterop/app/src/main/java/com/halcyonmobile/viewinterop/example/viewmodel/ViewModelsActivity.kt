@@ -12,6 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.halcyonmobile.viewinterop.databinding.ActivityViewmodelsBinding
 
+/**
+ * You can obtain a viewmodel in Compose scoped to the parent Activity, Fragment or navigation destination.
+ * In this example the same Composable function ([ComposeWithViewModels]) is called in different places to demonstrate this.
+ * See this Activity, [PageFragment] and [ComposeNavigation].
+ */
 class ViewModelsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +27,9 @@ class ViewModelsActivity : AppCompatActivity() {
         binding.composeView.setContent {
             Column(Modifier.padding(8.dp)) {
                 Text(text = "Activity: ViewModel is scoped to the Activity")
+                /**
+                 * When calling it here the ViewModel will be scoped to this Activity
+                 */
                 ComposeWithViewModels()
             }
         }

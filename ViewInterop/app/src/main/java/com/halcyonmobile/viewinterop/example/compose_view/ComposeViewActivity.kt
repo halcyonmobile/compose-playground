@@ -12,6 +12,10 @@ import androidx.compose.ui.unit.dp
 import com.halcyonmobile.viewinterop.InteropApp
 import com.halcyonmobile.viewinterop.databinding.ActivityComposeViewBinding
 
+/**
+ * Use ComposeView to add compose in your XML layout.
+ * You need to call setContent to add your compose code.
+ */
 class ComposeViewActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
