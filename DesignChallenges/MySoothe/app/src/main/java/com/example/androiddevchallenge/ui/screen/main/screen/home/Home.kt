@@ -21,7 +21,7 @@ import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.components.AppTextField
 import com.example.androiddevchallenge.ui.components.type.H2
 import com.example.androiddevchallenge.ui.modifiers.firstBaselineToTop
-import dev.chrisbanes.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
 fun Home(navController: NavHostController) {

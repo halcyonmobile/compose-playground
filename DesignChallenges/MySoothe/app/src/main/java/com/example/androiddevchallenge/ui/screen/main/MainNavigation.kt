@@ -5,11 +5,13 @@ package com.example.androiddevchallenge.ui.screen.main
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -27,18 +29,19 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.KEY_ROUTE
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.components.AppBottomNavigation
 import com.example.androiddevchallenge.ui.screen.main.screen.Profile
 import com.example.androiddevchallenge.ui.screen.main.screen.home.Home
-import dev.chrisbanes.accompanist.insets.navigationBarsPadding
-import java.util.Locale
+import com.google.accompanist.insets.navigationBarsPadding
+import java.util.*
+
 
 val items = listOf(
     HomeScreen.Home,
@@ -61,9 +64,13 @@ fun MainNavigator() {
             composable(HomeScreen.Profile.route) { Profile(navController) }
         }
 
-        AppBottomNavigation(Modifier.align(Alignment.BottomCenter)) {
+        AppBottomNavigation(
+            Modifier.align(Alignment.BottomCenter),
+            backgroundColor = MaterialTheme.colors.background,
+            elevation = if (isSystemInDarkTheme()) 0.dp else 8.dp,
+        ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+            val currentRoute = navBackStackEntry?.destination
             items.forEach { screen ->
                 val screenName = stringResource(screen.name)
                 BottomNavigationItem(
@@ -81,11 +88,14 @@ fun MainNavigator() {
                             style = MaterialTheme.typography.caption
                         )
                     },
-                    selected = currentRoute == screen.route,
+                    selected = currentRoute?.hierarchy?.any { it.route == screen.route } == true,
                     onClick = {
                         navController.navigate(screen.route) {
-                            popUpTo = navController.graph.startDestination
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
                             launchSingleTop = true
+                            restoreState = true
                         }
                     }
                 )

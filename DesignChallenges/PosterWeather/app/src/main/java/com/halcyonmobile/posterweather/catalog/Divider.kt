@@ -1,7 +1,9 @@
 package com.halcyonmobile.posterweather.catalog
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -29,6 +31,7 @@ fun VerticalDivider(
     width: Dp = 1.dp,
 ) {
     Spacer(modifier = Modifier
+        .fillMaxHeight()
         .width(width)
         .background(AppTheme.colors.ink)
         .then(modifier))

@@ -7,7 +7,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import dev.chrisbanes.accompanist.insets.systemBarsPadding
+import com.google.accompanist.insets.systemBarsPadding
 
 @Composable
 fun Profile(navController: NavHostController) {

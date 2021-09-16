@@ -1,6 +1,7 @@
 package com.example.androiddevchallenge.ui.screen.main.screen.home
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -17,9 +18,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.modifiers.firstBaselineToTop
-import dev.chrisbanes.accompanist.coil.CoilImage
 
 data class ImageItem(
     val image: String,
@@ -65,8 +66,8 @@ fun Item(item: ImageItem, last: Boolean) {
     val text = stringResource(id = item.text)
 
     Column {
-        CoilImage(
-            data = item.image,
+        Image(
+            painter = rememberImagePainter(item.image),
             contentDescription = text,
             contentScale = ContentScale.Crop,
             modifier = Modifier.padding(end = if (last) 0.dp else 8.dp).clip(CircleShape).size(88.dp),

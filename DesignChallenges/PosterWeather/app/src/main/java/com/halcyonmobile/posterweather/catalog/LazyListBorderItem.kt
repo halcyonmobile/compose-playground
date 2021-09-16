@@ -1,6 +1,8 @@
 package com.halcyonmobile.posterweather.catalog
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyItemScope
@@ -18,19 +20,16 @@ import androidx.compose.ui.zIndex
 
 fun LazyListScope.borderItem(key: Any? = null, top: Boolean = false, bottom: Boolean = false, content: @Composable LazyItemScope.() -> Unit) {
     item(key) {
-        var height by remember { mutableStateOf(0) }
-        Box(Modifier.fillMaxWidth()) {
+        Box(Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
             if (top) HorizontalDivider()
             VerticalDivider(Modifier
-                .height(with(LocalDensity.current) { height.toDp() })
+                .fillMaxHeight()
                 .align(Alignment.TopStart))
-            Box(Modifier
-                .onSizeChanged { height = it.height }
-                .zIndex(1f)) {
+            Box(Modifier.zIndex(1f)) {
                 content()
             }
             VerticalDivider(Modifier
-                .height(with(LocalDensity.current) { height.toDp() })
+                .fillMaxHeight()
                 .align(Alignment.TopEnd))
             if (bottom) HorizontalDivider(modifier = Modifier.align(Alignment.BottomStart))
         }
