@@ -33,11 +33,14 @@ fun AppContent(backDispatcher: OnBackPressedDispatcher) {
     }
     backDispatcher.addCallback(backCallback)
 
-    component.value?.let {
-        it.content()
-    } ?: StartScreen(components) { index, newComponent ->
-        componentIndex.value = index
-        component.value = newComponent
+    val componentValue = component.value
+    if (componentValue != null) {
+        componentValue.content()
+    } else {
+        StartScreen(components) { index, newComponent ->
+            componentIndex.value = index
+            component.value = newComponent
+        }
     }
 
     DisposableEffect(Unit) {
